@@ -26,7 +26,7 @@ def get_throw(myself: Player, opponent: Player):
 
 def defend_or_move(myself: Player, opponent: Player):
     if get_throw(myself=opponent, opponent=myself):
-        if (opponent.score - myself.score < 3 and opponent.direction == "T") or opponent.wasHit: 
+        if (opponent.direction == "T") or opponent.wasHit: 
             # attack mode
             if myself.x - opponent.x == 0:
                 if myself.y > opponent.y:
