@@ -32,28 +32,7 @@ def index():
 def move():
     request.get_data()
     logger.info(request.json)
-    data = request.json
-    state = data['arena']['state']
-    x = state['https://cloud-run-hackathon-python-2lrdjc6pya-uc.a.run.app']['x']
-    y = state['https://cloud-run-hackathon-python-2lrdjc6pya-uc.a.run.app']['y']
-    dir = state['https://cloud-run-hackathon-python-2lrdjc6pya-uc.a.run.app']['direction']
-    bots=[]
-    for player in state:
-        bot=[]
-        bot['x'] = int(player['x'])
-        bot['y'] = int(player['y'])
-        bot['dir'] = player['direction']
-        bots.append(bot)
-    for bot in bots:
-        if bot['x'] - x <3:
-            if bot['x'] - x <3 & bot['dir'] == dir:
-                return 'F'
-            elif bot['x'] - x <3:
-                return bot['dir']
-            else:
-                return moves[random.randrange(len(moves))]
-        else:
-            return moves[random.randrange(len(moves))]
+    return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
